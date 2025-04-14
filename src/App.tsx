@@ -74,46 +74,26 @@ export const App: React.FC<{}> = () => {
           type="button"
           className={reverseClass}
           onClick={() => {
-            if (
-              reverseClass === 'button is-warning is-light' &&
-              sortAlphabetClass === 'button is-info is-light' &&
-              sortByLengthClass === 'button is-success is-light'
-            ) {
+            if (reverseClass === 'button is-warning is-light') {
               setReverseClass('button is-warning');
               setResetClass('button is-danger');
               setGoods(goods.reverse());
-            } else if (
-              reverseClass === 'button is-warning is-light' &&
-              sortAlphabetClass === 'button is-info'
-            ) {
-              setReverseClass('button is-warning');
-              setGoods(goods.reverse());
-            } else if (
-              reverseClass === 'button is-warning' &&
-              sortAlphabetClass === 'button is-info'
-            ) {
-              setReverseClass('button is-warning is-light');
-              setGoods(goods.reverse());
-            } else if (
-              reverseClass === 'button is-warning is-light' &&
-              sortByLengthClass === 'button is-success'
-            ) {
-              setReverseClass('button is-warning');
-              setGoods(goods.reverse());
-            } else if (
-              reverseClass === 'button is-warning' &&
-              sortByLengthClass === 'button is-success'
-            ) {
-              setReverseClass('button is-warning is-light');
-              setGoods(goods.reverse());
-            } else if (
-              reverseClass === 'button is-warning' &&
-              sortAlphabetClass === 'button is-info is-light' &&
-              sortByLengthClass === 'button is-success is-light'
-            ) {
-              setReverseClass('button is-warning is-light');
-              setResetClass('button is-danger is-light');
-              setGoods(goods.reverse());
+            }
+
+            if (reverseClass === 'button is-warning') {
+              if (sortAlphabetClass === 'button is-info') {
+                setSortAlphabetClass('button is-info is-light');
+                setReverseClass('button is-warning is-light');
+                setGoods(goods.reverse());
+              } else if (sortByLengthClass === 'button is-success') {
+                setSortByLengthClass('button is-success is-light');
+                setReverseClass('button is-warning is-light');
+                setGoods(goods.reverse());
+              } else {
+                setReverseClass('button is-warning is-light');
+                setResetClass('button is-danger is-light');
+                setGoods(goods.reverse());
+              }
             }
           }}
         >
