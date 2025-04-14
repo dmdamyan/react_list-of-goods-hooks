@@ -120,19 +120,21 @@ export const App: React.FC<{}> = () => {
           Reverse
         </button>
 
-        <button
-          type="button"
-          className={resetClass}
-          onClick={() => {
-            setResetClass('button is-danger is-light');
-            setSortAlphabetClass('button is-info is-light');
-            setSortByLengthClass('button is-success is-light');
-            setReverseClass('button is-warning is-light');
-            setGoods([...goodsFromServer]);
-          }}
-        >
-          Reset
-        </button>
+        {resetClass === 'button is-danger' && (
+          <button
+            type="button"
+            className={resetClass}
+            onClick={() => {
+              setResetClass('button is-danger is-light');
+              setSortAlphabetClass('button is-info is-light');
+              setSortByLengthClass('button is-success is-light');
+              setReverseClass('button is-warning is-light');
+              setGoods([...goodsFromServer]);
+            }}
+          >
+            Reset
+          </button>
+        )}
       </div>
 
       <ul>
